@@ -159,7 +159,10 @@ int DelteExpiredFiles(string dirrectoy)
             Int32.Parse(matchCollection[0].Groups[1].Value) == 1)
         {
             count++;
-            File.Delete(file);
+            if (File.Exists(file))
+            {
+                File.Delete(file);
+            }
         }
     }
 
